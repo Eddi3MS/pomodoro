@@ -22,10 +22,16 @@ function App() {
     };
   }, [countdownInSeconds, paused]);
 
+  const restartHandler = () => {
+    setCountdownInSeconds(countdownStart);
+    setPaused(true);
+  };
+
   return (
-    <AppStyled>
+    <AppStyled isPaused={paused}>
       <h1>Técnica pomodoro</h1>
       <div className="Timer">
+        <span className="light"></span>
         <span>{String(minutes).padStart(2, "0")}</span>
         <span>:</span>
         <span>{String(seconds).padStart(2, "0")}</span>
@@ -35,9 +41,7 @@ function App() {
           Start | Pause
         </button>
 
-        <button onClick={() => setCountdownInSeconds(countdownStart)}>
-          Restart
-        </button>
+        <button onClick={restartHandler}>Restart</button>
       </div>
     </AppStyled>
   );
