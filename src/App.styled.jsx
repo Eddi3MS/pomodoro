@@ -1,16 +1,6 @@
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 
 import "@fontsource/azeret-mono";
-
-const pulse = keyframes`
-  from {
-    transform: scale(.5);
-  }
-
-  to {
-    transform: rotate(1);
-  }
-`;
 
 export const AppStyled = styled.main`
   display: flex;
@@ -24,16 +14,6 @@ export const AppStyled = styled.main`
   .Timer {
     display: flex;
     align-items: center;
-    .light {
-      display: inline-block;
-      background-color: ${(props) => (props.isPaused ? "red" : "green")};
-      width: 3rem;
-      height: 3rem;
-      border-radius: 50%;
-      margin-right: 1rem;
-      animation: 1s linear infinite alternate;
-      animation-name: ${(props) => (props.isPaused ? pulse : "")};
-    }
 
     span {
       font-family: "Azeret Mono", sans-serif;
@@ -46,14 +26,53 @@ export const AppStyled = styled.main`
     gap: 1rem;
 
     button {
-      padding: 0.5rem 1rem;
+      padding: 0;
       border: 0;
       background-color: #f6f7f9;
       cursor: pointer;
       font-weight: 600;
       letter-spacing: 0.5px;
-      &:hover {
-        background-color: #d9e0ee;
+
+      display: flex;
+      align-items: center;
+
+      span {
+        padding: 0.5rem 1rem;
+        display: inline-block;
+        width: 50%;
+        height: 100%;
+        transition: all 0.2s ease-in-out;
+      }
+
+      .start {
+        background-color: ${(props) => (props.isPaused ? "#f6f7f9" : "green")};
+        color: ${(props) => (props.isPaused ? "#202023" : "#f6f7f9")};
+
+        &:hover {
+          background-color: #189118;
+          color: #f6f7f9;
+        }
+      }
+
+      .pause {
+        background-color: ${(props) => (props.isPaused ? "red" : "#f6f7f9")};
+        color: ${(props) => (props.isPaused ? "#f6f7f9" : "#202023")};
+
+        &:hover {
+          background-color: #bd1c1c;
+          color: #f6f7f9;
+        }
+      }
+
+      .restart {
+        width: 100%;
+        background-color: #f6f7f9;
+        color: #202023;
+
+        &:hover {
+          background-color: #2e63ce;
+          color: #f6f7f9;
+        }
       }
     }
   }

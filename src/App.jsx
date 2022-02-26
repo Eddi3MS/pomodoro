@@ -38,10 +38,13 @@ function App() {
       </div>
       <div className="Buttons">
         <button onClick={() => setPaused((currentState) => !currentState)}>
-          Start | Pause
+          <span className="start">Start</span>
+          <span className="pause">Pause</span>
         </button>
 
-        <button onClick={restartHandler}>Restart</button>
+        <button onClick={restartHandler}>
+          <span className="restart">Restart</span>
+        </button>
       </div>
     </AppStyled>
   );
