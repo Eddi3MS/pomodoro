@@ -45,8 +45,10 @@ export const AppStyled = styled.main`
       }
 
       .start {
-        background-color: ${(props) => (props.isPaused ? "#f6f7f9" : "green")};
-        color: ${(props) => (props.isPaused ? "#202023" : "#f6f7f9")};
+        background-color: ${(props) =>
+          props.isPaused || props.countdown === 0 ? "#f6f7f9" : "green"};
+        color: ${(props) =>
+          props.isPaused || props.countdown === 0 ? "#202023" : "#f6f7f9"};
 
         &:hover {
           background-color: #189118;
@@ -55,8 +57,10 @@ export const AppStyled = styled.main`
       }
 
       .pause {
-        background-color: ${(props) => (props.isPaused ? "red" : "#f6f7f9")};
-        color: ${(props) => (props.isPaused ? "#f6f7f9" : "#202023")};
+        background-color: ${(props) =>
+          props.isPaused || props.countdown === 0 ? "red" : "#f6f7f9"};
+        color: ${(props) =>
+          props.isPaused || props.countdown === 0 ? "#f6f7f9" : "#202023"};
 
         &:hover {
           background-color: #bd1c1c;

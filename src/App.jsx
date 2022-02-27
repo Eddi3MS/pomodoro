@@ -27,8 +27,16 @@ function App() {
     setPaused(true);
   };
 
+  const startHandler = () => {
+    if (countdownInSeconds === 0) {
+      setCountdownInSeconds(countdownStart);
+    }
+
+    setPaused(false);
+  };
+
   return (
-    <AppStyled isPaused={paused}>
+    <AppStyled isPaused={paused} countdown={countdownInSeconds}>
       <h1>Técnica pomodoro</h1>
       <div className="Timer">
         <span className="light"></span>
@@ -37,9 +45,13 @@ function App() {
         <span>{String(seconds).padStart(2, "0")}</span>
       </div>
       <div className="Buttons">
-        <button onClick={() => setPaused((currentState) => !currentState)}>
-          <span className="start">Start</span>
-          <span className="pause">Pause</span>
+        <button>
+          <span onClick={startHandler} className="start">
+            Start
+          </span>
+          <span onClick={() => setPaused(true)} className="pause">
+            Pause
+          </span>
         </button>
 
         <button onClick={restartHandler}>
