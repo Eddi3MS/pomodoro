@@ -4,4 +4,5 @@ A Técnica Pomodoro é um método de gerenciamento de tempo desenvolvido por Fra
 
 App bem simples criado com React.Js e React Hooks.
 
-![Pomodore](https://user-images.githubusercontent.com/75024157/155850401-5c70c383-fc3a-485f-b5c3-9de5a353e3b9.gif)
+
+![Pomodore](https://user-images.githubusercontent.com/75024157/155879639-1cd11248-f612-4c90-a561-9ead00d47fac.gif)
